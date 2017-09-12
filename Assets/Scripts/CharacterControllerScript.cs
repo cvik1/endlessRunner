@@ -19,7 +19,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Flip ();
+		faceRight ();
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		
@@ -41,11 +41,26 @@ public class CharacterControllerScript : MonoBehaviour {
 			anim.SetBool ("Ground", false);
 			rb.AddForce (new Vector2 (0, jumpForce));
 		}
+
+
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			Flip ();
+		}
+
+	}
+
+	void faceRight () {
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 
 	void Flip () {
 		Vector3 scale = transform.localScale;
-		scale.x *= -1;
+		scale.y *= -1;
+		Physics2D.gravity *= -1;
+		jumpForce *= -1;
 		transform.localScale = scale;
+
 	}
 }
