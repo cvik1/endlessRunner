@@ -19,7 +19,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		faceRight ();
+		//faceRight ();
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		
@@ -48,13 +48,13 @@ public class CharacterControllerScript : MonoBehaviour {
 		}
 
 	}
-
+	/*
 	void faceRight () {
 		Vector3 scale = transform.localScale;
 		scale.x *= -1;
 		transform.localScale = scale;
 	}
-
+	*/
 	void Flip () {
 		Vector3 scale = transform.localScale;
 		scale.y *= -1;
